@@ -13,6 +13,8 @@ const {
 	engines: {node: wanted}
 } = require('../package');
 
+const authorName = typeof author === 'string' ? author : author.name;
+
 function checkNodeVersion(wanted, cliName) {
 	const curNodeVersion = process.version;
 	if (!semver.satisfies(curNodeVersion, wanted)) {
@@ -55,7 +57,7 @@ process.addListener('uncaughtException', handleError);
 		.example(`${cmdName} create multicmd-cli myproject`, 'create a project from multicmd-cli template')
 		.usage(`${chalk.yellowBright(logo)}\n\n${chalk.blue.underline('Usage:')} ${cmdName} <command> [options]`)
 		.version(version)
-		.epilog(`By ${author}`)
+		.epilog(`By ${authorName}`)
 		.help()
 		.fail((msg, err, yargs) => {
 			if (err) {
