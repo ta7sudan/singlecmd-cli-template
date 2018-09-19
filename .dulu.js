@@ -21,7 +21,7 @@ module.exports = function(projectName) {
 				name: 'desc',
 				type: 'input',
 				message: 'Project description',
-				default: 'A multicmd cli project'
+				default: 'A singlecmd cli project'
 			},
 			{
 				name: 'keywords',
