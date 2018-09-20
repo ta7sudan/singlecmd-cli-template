@@ -8,7 +8,7 @@ const yargonaut = require('yargonaut');
 const chalk = require('chalk');
 const {version, author} = require('../package');
 const {handleError, handleExit} = require('../src/lib/utils/error-handler');
-const {log, getCmds, getFiglet} = require('../src/lib/utils');
+const {logger, getCmds, getFiglet} = require('../src/lib/utils');
 const {
 	engines: {node: wanted}
 } = require('../package');
@@ -18,7 +18,7 @@ const authorName = typeof author === 'string' ? author : author.name;
 function checkNodeVersion(wanted, cliName) {
 	const curNodeVersion = process.version;
 	if (!semver.satisfies(curNodeVersion, wanted)) {
-		log.error(
+		logger.error(
 			`You are using Node ${curNodeVersion}, but this version of ${cliName} requires Node ${wanted}. Please upgrade your Node version.`
 		);
 		process.exit(1);

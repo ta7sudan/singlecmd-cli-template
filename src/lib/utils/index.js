@@ -3,7 +3,7 @@ const figlet = require('figlet');
 const path = require('path');
 const os = require('os');
 const {bin} = require('../../../package');
-const log = require('./log');
+const logger = require('./logger');
 
 const CLI_ROOT = path.resolve(__dirname, '../../..');
 const TODO_DIR = path.resolve(os.homedir(), '.todo');
@@ -33,7 +33,7 @@ exports.getFiglet = cmd =>
 		);
 	});
 
-exports.log = log;
+exports.logger = logger;
 
 exports.CLI_ROOT = CLI_ROOT;
 
