@@ -54,14 +54,16 @@ process.addListener('uncaughtException', handleError);
 		})
 		.alias('h', 'help')
 		.alias('v', 'version')
-		.example(`${cmdName} create multicmd-cli myproject`, 'create a project from multicmd-cli template')
-		.usage(`${chalk.yellowBright(logo)}\n\n${chalk.blue.underline('Usage:')} ${cmdName} <command> [options]`)
+		.example(`${cmdName} todo todo`, 'todo')
+		.usage(`${chalk.yellowBright(logo)}\n\n${chalk.blue.underline('Usage:')}\n  `
+		+ `${cmdName} [options] [todo]`)
 		.version(version)
 		.epilog(`By ${authorName}`)
 		.help()
-		.fail((msg, err, yargs) => {
+		// 尽量不要用async函数做最终的异常处理
+		.fail(async (msg, err, yargs) => {
 			if (err) {
-				handleError(err);
+				await handleError(err);
 			} else if (msg) {
 				// 参数不匹配时显示帮助文档
 				yargs.showHelp();
@@ -74,6 +76,7 @@ process.addListener('uncaughtException', handleError);
 			return true;
 		}).argv;
 
+	// TODO 其他逻辑
 	require('../src')(argv);
 })();
 

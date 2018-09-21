@@ -7,6 +7,7 @@
 
 function main(options) {
 	console.log('todo');
+	// TODO, 如果支持作为模块引入, 这里最好再坐下参数类型检查
 }
 
 module.exports = main;

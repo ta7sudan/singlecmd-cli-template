@@ -4,6 +4,7 @@ const ora = require('ora');
 const cleaner = require('./cleanup');
 const {logger} = require('./index');
 
+// 尽量不要用async函数做最终的异常处理
 async function handleExit() {
 	const spiner = ora('do clean up...\n').start();
 	try {
@@ -17,6 +18,7 @@ async function handleExit() {
 	process.exit();
 }
 
+// 尽量不要用async函数做最终的异常处理
 async function handleError(e) {
 	if (e.msg) {
 		logger.error(e.msg);
