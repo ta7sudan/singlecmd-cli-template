@@ -1,14 +1,14 @@
 'use strict';
 const chalk = require('chalk');
 const ora = require('ora');
-const cleaner = require('./cleanup');
+const cleaner = require('./cleaner');
 const {logger} = require('./index');
 
 // 尽量不要用async函数做最终的异常处理
 async function handleExit() {
 	const spiner = ora('do clean up...\n').start();
 	try {
-		await cleaner.cleanUp();
+		await cleaner.cleanup();
 		spiner.succeed('Exiting without error.');
 	} catch (e) {
 		logger.error(`Clean up failed. Error message: ${e.message}`);
@@ -29,7 +29,7 @@ async function handleError(e) {
 
 	const spiner = ora('do clean up...\n').start();
 	try {
-		await cleaner.cleanUp();
+		await cleaner.cleanup();
 		spiner.succeed('clean up done.');
 	} catch (err) {
 		logger.error(`Clean up failed. Error message: ${err.message}`);
