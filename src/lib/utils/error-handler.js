@@ -1,8 +1,7 @@
 'use strict';
 const chalk = require('chalk');
 const ora = require('ora');
-const cleaner = require('./cleaner');
-const {logger} = require('./index');
+const {logger, cleaner} = require('./index');
 
 // 尽量不要用async函数做最终的异常处理
 async function handleExit() {
