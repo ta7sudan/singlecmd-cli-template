@@ -21,8 +21,8 @@
     "type": "git",
     "url": "git+https://github.com/{{author}}/{{project}}.git"
   },
-  "keywords": [
-    {{each keywords $kwd $idx}}"{{@$kwd}}"{{if $idx != keywords.length - 1}},{{/if}}{{/each}}
+  "keywords": [{{each keywords $kwd $idx}}
+    "{{@$kwd}}"{{if $idx != keywords.length - 1}},{{/if}}{{/each}}
   ],
   "author": "{{author}}",
   "license": "GPL-3.0",
