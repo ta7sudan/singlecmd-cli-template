@@ -1,2 +1,2 @@
-# singlecmd-cli-template
+# {{project}}
 A single-command CLI template for dulu
