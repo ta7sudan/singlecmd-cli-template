@@ -27,10 +27,10 @@ function checkNodeVersion(wanted, cliName) {
 
 checkNodeVersion(wanted, getCmds()[0]);
 
-process.addListener('SIGHUP', handleSignal);
-process.addListener('SIGQUIT', handleSignal);
-process.addListener('SIGINT', handleSignal);
-process.addListener('SIGTERM', handleSignal);
+process.once('SIGHUP', handleSignal);
+process.once('SIGQUIT', handleSignal);
+process.once('SIGINT', handleSignal);
+process.once('SIGTERM', handleSignal);
 process.addListener('uncaughtException', handleError);
 
 (async () => {
